@@ -9,11 +9,11 @@ import retrofit2.http.Headers
 
 interface TweetsRetrofitAPI {
 
-    @GET("/b/BIN_ID?meta=false")
+    @GET("b/BIN_ID?meta=false")
     suspend fun getTweets(@Header("X-JSON-Path") category: String): Response<List<TweetListItem>>
 
-    @GET("/b/BIN_ID?meta=false")
-    @Headers("X-JSON-Path : \$..category")
+    @GET("b/6546683a12a5d3765994d299?meta=false")
+    @Headers("X-JSON-Path: $..category")
     suspend fun getCategories(): Response<List<String>>
 
 }

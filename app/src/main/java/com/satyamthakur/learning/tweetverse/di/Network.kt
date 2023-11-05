@@ -18,7 +18,7 @@ class Network {
     @Provides
     fun providesRetrofit(): Retrofit = Retrofit
         .Builder()
-        .baseUrl(BASE_URL)
+        .baseUrl("https://api.jsonbin.io/v3/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
@@ -27,4 +27,5 @@ class Network {
     fun providesTweetAPI(retrofit: Retrofit): TweetsRetrofitAPI {
         return retrofit.create(TweetsRetrofitAPI::class.java)
     }
+
 }
