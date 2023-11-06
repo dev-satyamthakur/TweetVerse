@@ -19,9 +19,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.satyamthakur.learning.tweetverse.R
 import com.satyamthakur.learning.tweetverse.viewmodels.CategoryViewModel
 
 @Composable
@@ -34,7 +39,7 @@ fun CategoryScreen() {
         contentPadding = PaddingValues(8.dp),
         verticalArrangement = Arrangement.SpaceAround,
     ) {
-        items(categories.value) {
+        items(categories.value.distinct()) {
             CategoryItem(it)
         }
     }
@@ -48,13 +53,17 @@ fun CategoryItem(category: String) {
             .padding(4.dp)
             .size(160.dp)
             .clip(RoundedCornerShape(8.dp))
+            .paint(
+                painter = painterResource(R.drawable.bg),
+                contentScale = ContentScale.Crop
+            )
             .border(1.dp, Color(0xFFEEEEEE)),
         contentAlignment = Alignment.BottomCenter
     ) {
         Text(
             text = category,
             fontSize = 18.sp,
-            color = Color.Black,
+            color = Color.White,
             modifier = Modifier.padding(0.dp, 20.dp),
             style = MaterialTheme.typography.bodyLarge
         )
