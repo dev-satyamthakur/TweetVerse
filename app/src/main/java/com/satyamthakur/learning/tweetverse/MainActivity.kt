@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.lifecycleScope
 import com.satyamthakur.learning.tweetverse.networking.TweetsRetrofitAPI
 import com.satyamthakur.learning.tweetverse.screens.CategoryScreen
+import com.satyamthakur.learning.tweetverse.screens.DetailScreen
 import com.satyamthakur.learning.tweetverse.ui.theme.TweetVerseTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -23,13 +24,15 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         setContent {
             TweetVerseTheme {
                 // A surface container using the 'background' color from the theme
-                CategoryScreen()
+                DetailScreen()
             }
         }
     }
