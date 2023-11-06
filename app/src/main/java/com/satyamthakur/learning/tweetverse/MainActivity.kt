@@ -22,20 +22,8 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-    @Inject
-    lateinit var myAPI: TweetsRetrofitAPI
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        GlobalScope.launch() {
-            var list = myAPI.getCategories()
-            Log.d("MYAPP", list.body().toString())
-        }
-
 
         setContent {
             TweetVerseTheme {
